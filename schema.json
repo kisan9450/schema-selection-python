@@ -1,0 +1,88 @@
+
+{
+    "tables": [
+        {
+            "name": "orders",
+            "columns": [
+                "order_id INTEGER PRIMARY KEY",
+                "customer_id INTEGER",
+                "order_date DATETIME",
+                "status VARCHAR(20)",
+                "total_amount DECIMAL(10,2)",
+                "payment_method VARCHAR(50)",
+                "shipping_address TEXT"
+            ]
+        },
+        {
+            "name": "customers",
+            "columns": [
+                "customer_id INTEGER PRIMARY KEY",
+                "first_name VARCHAR(50)",
+                "last_name VARCHAR(50)",
+                "email VARCHAR(100) UNIQUE",
+                "phone VARCHAR(20)",
+                "created_at DATETIME",
+                "updated_at DATETIME"
+            ]
+        },
+        {
+            "name": "products",
+            "columns": [
+                "product_id INTEGER PRIMARY KEY",
+                "name VARCHAR(100)",
+                "description TEXT",
+                "category VARCHAR(50)",
+                "price DECIMAL(10,2)",
+                "stock_quantity INTEGER",
+                "created_at DATETIME",
+                "updated_at DATETIME"
+            ]
+        },
+        {
+            "name": "order_items",
+            "columns": [
+                "order_item_id INTEGER PRIMARY KEY",
+                "order_id INTEGER",
+                "product_id INTEGER",
+                "quantity INTEGER",
+                "unit_price DECIMAL(10,2)"
+            ]
+        },
+        {
+            "name": "employees",
+            "columns": [
+                "employee_id INTEGER PRIMARY KEY",
+                "first_name VARCHAR(50)",
+                "last_name VARCHAR(50)",
+                "email VARCHAR(100) UNIQUE",
+                "phone VARCHAR(20)",
+                "position VARCHAR(50)",
+                "salary DECIMAL(10,2)",
+                "hire_date DATE",
+                "department VARCHAR(50)"
+            ]
+        },
+        {
+            "name": "payments",
+            "columns": [
+                "payment_id INTEGER PRIMARY KEY",
+                "order_id INTEGER",
+                "customer_id INTEGER",
+                "payment_date DATETIME",
+                "payment_amount DECIMAL(10,2)",
+                "payment_status VARCHAR(20)"
+            ]
+        },
+        {
+            "name": "shipments",
+            "columns": [
+                "shipment_id INTEGER PRIMARY KEY",
+                "order_id INTEGER",
+                "shipped_date DATETIME",
+                "expected_delivery DATE",
+                "delivery_status VARCHAR(20)",
+                "carrier VARCHAR(50)"
+            ]
+        }
+    ]
+}
